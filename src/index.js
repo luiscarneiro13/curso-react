@@ -1,15 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { TodoApp } from './components/08-useReducer/TodoApp';
+import { EjemploRealRef } from './components/04-useRef/EjemploRealRef';
 
 
 
-
-// import { Padre } from './components/07-tarea-memo/Padre';
-// import { CallbackHook } from './components/06-memos/CallbackHook';
-// import { MemoHook } from './components/06-memos/MemoHook';
-// import { Memorize } from './components/06-memos/Memorize';
-// import { EjemploRealRef } from './components/04-useRef/EjemploRealRef';
 // import { FocusScreen } from './components/04-useRef/FocusScreen';
 // import { MultipleCustomHooks } from './components/03-examples/MultipleCustomHooks';
 // import { FormWithCustomHooks } from './components/02-useEffect/FormWithCustomHooks';
@@ -19,6 +13,6 @@ import { TodoApp } from './components/08-useReducer/TodoApp';
 // import { HookApp } from './HookApp';
 
 ReactDOM.render(
-  <TodoApp />,
+  <EjemploRealRef />,
   document.getElementById('root')
 );

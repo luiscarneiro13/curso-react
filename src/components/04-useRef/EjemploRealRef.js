@@ -19,9 +19,7 @@ export const EjemploRealRef = () => {
 
             <hr />
 
-            {show && <MultipleCustomHooks />}
-
-            
+            {show && <MultipleCustomHooks />}          
 
         </div>
     )

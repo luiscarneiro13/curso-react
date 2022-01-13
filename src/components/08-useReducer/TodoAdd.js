@@ -1,52 +1,58 @@
 import React from 'react'
-import { useForm } from '../../hooks/useForm'
+import { useForm } from '../../hooks/useForm';
 
 export const TodoAdd = ({ handleAddTodo }) => {
 
-    const [{ description }, handleInputChange, reset] = useForm({
+    const [ { description }, handleInputChange, reset ] = useForm({
         description: ''
-    })
+    });
 
     const handleSubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault();
 
-        if (description.trim().length <= 1) {
-            return
+        if ( description.trim().length <= 1 ) {
+            return;
         }
 
-        handleAddTodo({
+        const newTodo = {
             id: new Date().getTime(),
             desc: description,
-            donde: false
-        })
-
-        reset()
+            done: false
+        };
+        
+        handleAddTodo( newTodo );
+        reset();
+        
     }
 
+
     return (
-        <div className="col-5">
-            <h4>Agregar Todo</h4>
+        <>
+            <h4>Agregar TODO</h4>
             <hr />
 
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={ handleSubmit }>
 
-                <input
+                <input 
                     type="text"
-                    className="form-control"
                     name="description"
-                    placeholder="aprender ..."
+                    className="form-control"
+                    placeholder="Aprender ..."
                     autoComplete="off"
-                    onChange={handleInputChange}
-                    value={description}
+                    value={ description }
+                    onChange={ handleInputChange }
                 />
 
                 <button
-                    className="btn btn-outline-primary mt-1 btn-block"
                     type="submit"
+                    className="btn btn-outline-primary mt-1 btn-block"
                 >
                     Agregar
                 </button>
+
+
             </form>
-        </div>
+            
+        </>
     )
 }

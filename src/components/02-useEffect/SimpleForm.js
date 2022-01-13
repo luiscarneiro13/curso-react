@@ -1,67 +1,74 @@
-import React, { useEffect, useState } from 'react'
-import './effects.css'
-import { Message } from './Message'
+import React, { useEffect, useState } from 'react';
+import { Message } from './Message';
+
+import './effects.css';
 
 export const SimpleForm = () => {
 
-    const [formState, setformState] = useState({
+
+    const [formState, setFormState] = useState({
         name: '',
         email: ''
-    })
+    });
 
-    const { name, email } = formState
+    const { name, email } = formState;
 
-    useEffect(() => {
-        // console.log("Cuando cambia el componente la primera vez");
-    }, [])
+    useEffect( () => {
+        // console.log('hey!');
+    }, [] );
 
-    //Solo cuando algo del formulario cambia 
-    useEffect(() => {
-        // console.log("Form cambió");
-    }, [formState])
+    useEffect( () => {
+        // console.log('formState cambió');
+    }, [formState] );
 
-    //Solo cuando el email cambia
-    useEffect(() => {
-        // console.log("El Email cambió");
-    }, [email])
+    useEffect( () => {
+        // console.log('email cambió');
+    }, [email] );
+
+
 
     const handleInputChange = ({ target }) => {
-        setformState({
+
+        setFormState({
             ...formState,
-            [target.name]: target.value,
-        })
+            [ target.name ]: target.value
+        });
+
     }
+
 
     return (
         <>
-            <h1>UseEffect</h1>
+            <h1>useEffect</h1>
             <hr />
 
             <div className="form-group">
-                <input
+                <input 
                     type="text"
                     name="name"
                     className="form-control"
-                    placeholder="Nombre"
+                    placeholder="Tu nombre"
                     autoComplete="off"
-                    value={name}
-                    onChange={handleInputChange}
+                    value={ name }
+                    onChange={ handleInputChange }
                 />
             </div>
 
+
             <div className="form-group">
-                <input
+                <input 
                     type="text"
                     name="email"
                     className="form-control"
-                    placeholder="carneiroluis2@gmail.com"
+                    placeholder="email@gmail.com"
                     autoComplete="off"
-                    value={email}
-                    onChange={handleInputChange}
+                    value={ email }
+                    onChange={ handleInputChange }
                 />
             </div>
 
-            {(name === '123') && <Message />}
+
+            { (name === '123') && <Message /> }
 
         </>
     )

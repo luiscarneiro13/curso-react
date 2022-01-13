@@ -1,38 +1,39 @@
 
 
+export const todoReducer = ( state = [], action ) => {
 
-
-export const todoReducer = (state = [], action) => {
-
-    switch (action.type) {
+    switch ( action.type ) {
         case 'add':
-            return [...state, action.payload]
+            return [ ...state, action.payload ];
 
         case 'delete':
-            return state.filter(todo => todo.id !== action.payload)
+            return state.filter( todo => todo.id !== action.payload ); // 123123123
+
+
+        case 'toggle': 
+            return state.map( todo => 
+                ( todo.id === action.payload )
+                    ? { ...todo, done: !todo.done }
+                    : todo
+            );
 
         case 'toggle-old':
-            return state.map(todo => {
+            return state.map( todo => {
 
-                if (todo.id === action.payload) {
+                if ( todo.id === action.payload ) {
                     return {
                         ...todo,
                         done: !todo.done
                     }
                 } else {
-                    return todo
+                    return todo;
                 }
 
             })
 
-        /** Esta unción hace lo mismo que toggle-old, pero mucho más resumido */
-        case 'toggle':
-            return state.map(todo =>
-                (todo.id === action.payload) ? { ...todo, done: !todo.done } : todo
-            )
-
         default:
             return state;
     }
+
 
 }

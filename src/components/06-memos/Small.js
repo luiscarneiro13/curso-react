@@ -1,13 +1,12 @@
 import React from 'react'
 
+export const Small = React.memo(({ value }) => {
 
-export const Small = React.memo(
-    ({ value }) => {
+    console.log(' Me volví a llamar :(  ');
+    // http?
 
-        console.log("Se cargó el componente");
+    return (
+        <small> { value } </small>
+    )
+});
 
-        return (
-            <small>{value}</small>
-        )
-    }
-)
